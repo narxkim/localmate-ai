@@ -1,0 +1,27 @@
+info:
+  name: Create Chat
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:8080/api/chats
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "conversationId": "demo-001",
+        "region": "BUSAN",
+        "language": "ENGLISH",
+        "message": "Recommend a quiet beach in Busan."  
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,29 @@
+info:
+  name: Stream Chat
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:8080/api/chats/stream
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Accept
+      value: text/event-stream
+  body:
+    type: json
+    data: |-
+      {
+        "conversationId": "demo-002",
+        "region": "GYEONGJU",
+        "language": "ENGLISH",
+        "message": "Recommend a one-day historical trip in Gyeongju." 
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
