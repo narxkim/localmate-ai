@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LocalMate AI</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}"
+          href="/css/style.css">
+</head>
+
+<body>
+<div class="chat-page">
+
+    <main class="chat-app">
+
+        <!-- 상단 영역 -->
+        <header class="chat-header">
+            <div class="brand">
+                <div class="brand-icon">LM</div>
+
+                <div>
+                    <h1>LocalMate AI</h1>
+                    <p>Busan & Gyeongju Travel Concierge</p>
+                </div>
+            </div>
+
+            <button type="button"
+                    id="newChatBtn"
+                    class="new-chat-button">
+                새 대화
+            </button>
+        </header>
+
+        <!-- 여행 조건 선택 -->
+        <section class="travel-settings">
+
+            <label class="setting-field">
+                <span>지역</span>
+
+                <select id="region">
+                    <option value="BUSAN">부산</option>
+                    <option value="GYEONGJU">경주</option>
+                </select>
+            </label>
+
+            <label class="setting-field">
+                <span>답변 언어</span>
+
+                <select id="language">
+                    <option value="KOREAN">한국어</option>
+                    <option value="ENGLISH">English</option>
+                    <option value="JAPANESE">日本語</option>
+                    <option value="CHINESE">中文</option>
+                </select>
+            </label>
+
+        </section>
+
+        <!-- 채팅 내역 -->
+        <section id="chatHistory"
+                 class="chat-history"
+                 aria-live="polite">
+
+            <div class="message ai-message">
+                <div class="message-profile">AI</div>
+
+                <div class="message-content">
+                    <div class="message-name">LocalMate AI</div>
+
+                    <div class="message-bubble">
+                        안녕하세요. 부산과 경주 여행을 안내하는 LocalMate AI입니다.<br>
+                        지역과 답변 언어를 선택한 뒤 여행에 관해 질문해 주세요.
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- 메시지 입력 -->
+        <section class="chat-input-area">
+
+            <label for="message" class="sr-only">
+                여행 질문
+            </label>
+
+            <textarea id="message"
+                      rows="1"
+                      maxlength="1000"
+                      placeholder="여행에 관해 질문해 주세요."></textarea>
+
+            <button type="button"
+                    id="sendBtn"
+                    class="send-button">
+                전송
+            </button>
+
+        </section>
+
+        <div class="input-guide">
+            <span>Ctrl + Enter로 전송</span>
+            <span id="conversationStatus">새 대화</span>
+        </div>
+
+    </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2pdf.js/dist/html2pdf.bundle.min.js"></script>
+
+<script th:src="@{/js/app.js}"
+        src="/js/app.js"></script>
+</body>
+</html>
